@@ -10,16 +10,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import test.openerp.utils.Connectivity;
+import test.openerp.utils.Toaster;
 
 public class LoginActivity extends AppCompatActivity {
 
     SharedPreferences sp;
     private final String MY_PREFERENCES = "AUTHENTICATION";
     String email,password;
+
+    URL url;
 
     @BindView(R.id.activity_login)
     LinearLayout activity_login;
@@ -40,21 +46,22 @@ public class LoginActivity extends AppCompatActivity {
     @OnClick(R.id.btnLogin)
     void onClickLoginButton() {
 
-
         if (TextUtils.isEmpty(etemail.getEditableText().toString())) {
-            showSnackMessage(R.string.username_cannot_empty);
+            Toaster.displaySnackbar(activity_login,R.string.username_cannot_empty);
         } else if(!etemail.getEditableText().toString().contains("@")){
-            showSnackMessage(R.string.invalid_email);
+            Toaster.displaySnackbar(activity_login,R.string.invalid_email);
         } else if (TextUtils.isEmpty(etpassword.getEditableText().toString())){
-            showSnackMessage(R.string.password_cannot_empty);
+            Toaster.displaySnackbar(activity_login,R.string.password_cannot_empty);
         } else if (Connectivity.isConnected(this)) {
-           login();
+            email = etemail.getText().toString().trim();
+            password = etpassword.getText().toString().trim();
+           login(email,password);
         } else {
-            showSnackMessage(R.string.no_network_connection);
+            Toaster.displaySnackbar(activity_login,R.string.no_network_connection);
         }
     }
 
-    private void login() {
+    private void login(String email, String password) {
 
         SharedPreferences.Editor editor = sp.edit();
         editor.putBoolean("LOGIN",true);
@@ -63,14 +70,5 @@ public class LoginActivity extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(i);
         finish();
-
-
-    }
-
-    public void showSnackMessage(int message) {
-        Snackbar snackbar = Snackbar
-                .make(activity_login,message, Snackbar.LENGTH_LONG);
-
-        snackbar.show();
     }
 }

@@ -27,7 +27,9 @@
         <activity android:name=".activities.leaves.LeaveActivity" />
         <activity android:name=".activities.project.ProjectActivity" />
         <activity android:name=".activities.project.OngoingProjects" />
-        <activity android:name=".activities.project.Tasks"></activity>
+        <activity android:name=".activities.project.Tasks" />
+        <activity android:name=".activities.calendar.MeetingDetails" />
+        <activity android:name=".activities.calendar.AddMeetings"></activity>
     </application>
 
 </manifest>

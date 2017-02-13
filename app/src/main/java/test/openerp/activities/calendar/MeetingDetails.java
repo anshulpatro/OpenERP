@@ -1,18 +1,19 @@
 package test.openerp.activities.calendar;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import test.openerp.R;
 
-public class CalendarActivity extends AppCompatActivity {
+public class MeetingDetails extends AppCompatActivity {
+
+    @BindView(R.id.activity_meeting_detail)
+    LinearLayout activity_meeting_detail;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -20,20 +21,13 @@ public class CalendarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendar);
+        setContentView(R.layout.activity_meeting_details);
         ButterKnife.bind(this);
 
+        // Initializing Toolbar and setting it as the actionbar
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Calendar");
+        getSupportActionBar().setTitle("Meetings");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-    }
-
-    @OnClick(R.id.fab_add_meeting)
-    void onClickfab_add_meeting(){
-        Intent i = new Intent(getApplicationContext(), AddMeetings.class);
-        startActivity(i);
     }
 
     @Override

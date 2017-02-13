@@ -14,17 +14,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import test.openerp.fragments.HomeFragment;
+import test.openerp.utils.Toaster;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     boolean doubleBackToExitPressedOnce = false;
     SharedPreferences sp;
     private final String MY_PREFERENCES = "AUTHENTICATION";
+
+    @BindView(R.id.activity_main)
+    LinearLayout activity_main;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -55,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         sp = getSharedPreferences(MY_PREFERENCES,MODE_PRIVATE);
         setupNavigationBar();
+
+        Toaster.displaySnackbarString(activity_main, "Login Succesful. Welcome to OpenERP");
 
         loadFragment(0);
         
