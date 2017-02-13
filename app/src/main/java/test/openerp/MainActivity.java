@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         sp = getSharedPreferences(MY_PREFERENCES,MODE_PRIVATE);
         setupNavigationBar();
 
-        Toaster.displaySnackbarString(activity_main, "Login Succesful. Welcome to OpenERP");
+//        Toaster.displaySnackbarString(activity_main, "Login Succesful. Welcome to OpenERP");
 
         loadFragment(0);
         
