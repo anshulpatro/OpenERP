@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/activity_add_meetings">
+    android:id="@+id/activity_add_meetings"
+    android:background="@color/backgroundcolor">
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
@@ -28,8 +29,139 @@
                 android:id="@+id/frame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:padding="6dp">
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Subject"
+                    android:textSize="16sp"
+                    android:padding="6dp"
+                    android:background="@drawable/img_button_background"/>
+                />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date - "
+                        android:textSize="16sp"
+                        />
+
+                    <EditText
+                        android:id="@+id/et_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:textSize="16sp"
+                        android:text="13/01/2017"
+                        android:background="@drawable/img_button_background"
+                        android:padding="6dp"
+                        />
+                    />
+
+                    <ImageButton
+                        android:id="@+id/ib_editdate"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/edit_date_icon"
+                        android:background="@color/transparent"
+                        android:layout_marginLeft="8dp"
+                        android:scaleType="fitXY"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:padding="6dp"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/et_starttime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:hint="Start Time"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/ib_starttime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/edit_time_icon"
+                        android:background="@color/transparent"
+                        android:layout_marginLeft="-68dp"
+                        android:layout_weight="1"/>
+
+
+                    <EditText
+                        android:id="@+id/et_endtime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:layout_weight="1"
+                        android:hint="End Time"
+                        android:gravity="center"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/ib_endtime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/edit_time_icon"
+                        android:background="@color/transparent"
+                        android:layout_marginLeft="-68dp"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Location"
+                    android:padding="6dp"
+                    android:background="@drawable/img_button_background"/>
+                />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="12dp"
+                    android:hint="Enter Notes"
+                    android:padding="6dp"
+                    android:gravity="top"
+                    android:background="@drawable/img_button_background"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Enter Attendees"
+                    android:padding="6dp"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:background="@drawable/img_button_background"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Add"
+                    android:background="@drawable/img_button_background"/>
 
 
             </LinearLayout>
